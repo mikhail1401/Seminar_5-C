@@ -102,5 +102,34 @@ for (int i=0; i<array4.Length; i++)
 Console.WriteLine($"\nThere are {count} numbers in the segment between [10, 99].");
 
 
-Console.WriteLine("\n");
+Console.WriteLine("\nTask 37");
+// Найдите произведение пар чисел в одномерном массиве. Парой считаем первый и последний элемент, 
+// второй и предпоследний и т.д. Результат запишите в новом массиве.
+// [1 2 3 4 5] -> 5 8 3
+// [6 7 3 6] -> 36 21
+
+System.Console.WriteLine("Enter the size of the 1st array: ");
+int num5 = Convert.ToInt32(Console.ReadLine());
+
+int[] array51 = new int[num5];
+int[] array52 = new int[array51.Length/2 + array51.Length%2];   // To find out the size of the result array. It depends on if the size of array51 is odd or even.
+
+for (int i=0; i<array51.Length; i++)
+{
+    array51[i] = new Random().Next(0, 11);
+    Console.Write(array51[i] + ", ");
+}
+
+Console.WriteLine();
+
+for (int i=0; i<array52.Length; i++)
+{
+    array52[i] = array51[i] * array51[array51.Length-1-i];
+    if (i==array51.Length-1-i)
+    {
+        array52[i] = array51[i];
+    }
+
+    Console.Write(array52[i]+", ");
+}
 
